@@ -27,6 +27,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.logging.Level;
 
 /**
+ * 这是EventBUs
  * EventBus is a central publish/subscribe event system for Android. Events are posted ({@link #post(Object)}) to the
  * bus, which delivers it to subscribers that have a matching handler method for the event type. To receive events,
  * subscribers must register themselves to the bus using {@link #register(Object)}. Once registered, subscribers
@@ -147,7 +148,7 @@ public class EventBus {
         }
     }
 
-    // Must be called in synchronized block
+    // Must be called in synchronized block  既然必须在同步锁里面调用为什么不给这个加锁而放在上边
     private void subscribe(Object subscriber, SubscriberMethod subscriberMethod) {
         Class<?> eventType = subscriberMethod.eventType;
         Subscription newSubscription = new Subscription(subscriber, subscriberMethod);
@@ -163,7 +164,7 @@ public class EventBus {
         }
 
         int size = subscriptions.size();
-        for (int i = 0; i <= size; i++) {
+        for (int i = 0; i <= size; i++) { //这里进行订阅方法优先级的控制
             if (i == size || subscriberMethod.priority > subscriptions.get(i).subscriberMethod.priority) {
                 subscriptions.add(i, newSubscription);
                 break;

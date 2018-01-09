@@ -54,6 +54,7 @@ android {
                 arguments = [ eventBusIndex : 'org.greenrobot.eventbus.EventBusTestsIndex' ]
             }
         }
+
     }
 
     lintOptions {

@@ -1,7 +1,7 @@
 include ':EventBus'
 include ':EventBusAnnotationProcessor'
 include ':EventBusTestJava'
-include ':EventBusTest'
+//include ':EventBusTest'
 include ':EventBusTestSubscriberInJar'
 include ':EventBusPerformance'
 
